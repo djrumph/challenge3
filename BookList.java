@@ -81,12 +81,9 @@ public class BookList {
             arr = bubbleSort(arr);
 
             //variable to count down from lowest rank
-            int count = bookCount - 1;
             //looping over sorted array and displaying results
             for (int i = 0; i < num; i++) {
-                System.out.println("Rank " + (count) + " is " + arr[count].getBookName() + " with a score of " + arr[count].getRank());
-                count--;
-
+                System.out.println("Rank " + (i+1) + " is " + arr[i].getBookName() + " with a score of " + arr[i].getRank());
             }
         }
         else{
@@ -105,6 +102,20 @@ public class BookList {
                 }
             }
         }
+
+        //reversing array
+
+        arr = reverseArray(arr);
         return arr;
     }
+
+    public Book[] reverseArray(Book[] arr){
+        for(int i=0; i<arr.length/2; i++){
+            Book temp = arr[i];
+            arr[i] = arr[arr.length -i -1];
+            arr[arr.length -i -1] = temp;
+        }
+        return arr;
+    }
+
 }
