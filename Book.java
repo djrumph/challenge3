@@ -21,7 +21,6 @@ public class Book {
     }
 
 
-
     public String getBookName() {
         return bookName;
     }
@@ -43,12 +42,11 @@ public class Book {
     }
 
     //change book condition from good to bad and vice versa
-    public void changeCondition(){
-        if(this.condition.equals("good")) {
+    public void changeCondition() {
+        if (this.condition.equals("good")) {
             this.condition = "bad";
             System.out.println("uh-oh you messed the book up, the book is now in " + this.condition);
-        }
-        else{
+        } else {
             this.condition = "good";
             System.out.println("book has been fixed up and is in " + this.condition + " condition");
         }
@@ -67,7 +65,7 @@ public class Book {
         return year;
     }
 
-    public void bookInfo(){
+    public void bookInfo() {
         System.out.println("Book name is: " + this.getBookName());
         System.out.println("Book condition is: " + this.getCondition());
         System.out.println("Book deadline is: " + this.getDeadline());
@@ -75,7 +73,7 @@ public class Book {
         System.out.println("Book year is: " + this.getYear());
     }
 
-    public void updateRank(int num){
+    public void updateRank(int num) {
 
         this.rank += num;
     }

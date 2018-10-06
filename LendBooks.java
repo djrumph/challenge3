@@ -10,22 +10,21 @@ public class LendBooks {
 
     public static void main(String[] args) {
 
-        Scanner input  = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
 //          user can create books
 //        System.out.print("Enter book: ");
 //        String book = input.nextLine();
 //        Book test = new Book(book);
 
-
         //test making list of books
         //create books
         System.out.println("ADDING BOOKS TEST");
         Book tomSawyer = new Book("Tom Sawyer");
         Book countOfMonteCristo = new Book("Count of Monte Cristo");
-        Book watershipDown = new Book ("Watership Down");
+        Book watershipDown = new Book("Watership Down");
         Book theThreeMuskateers = new Book("The Three Muskateers");
-        Book janeEyre = new Book ("Jane Eyre");
+        Book janeEyre = new Book("Jane Eyre");
         Book harryPotter = new Book("Harry Potter");
 
         //add books to the lendingList
@@ -50,7 +49,7 @@ public class LendBooks {
         User DJ = new User("DJ");
 
         //check to see if user can rent a book
-        DJ.addBook(list.rentBook(tomSawyer,DJ));
+        DJ.addBook(list.rentBook(tomSawyer, DJ));
 
         //check to see if the book has been removed from the list
         System.out.println();
@@ -67,7 +66,7 @@ public class LendBooks {
         System.out.println();
         list.getAllBooks();
 
-         //check to see if book has been removed from users books
+        //check to see if book has been removed from users books
         System.out.println();
         System.out.println("BOOK REMOVED FROM USER TEST");
         DJ.bookInfo();
@@ -99,7 +98,7 @@ public class LendBooks {
         chey.getScore();
 //        b. Lending a book: +5
         //score should be 6
-        chey.lendBook(chey,DJ,countOfMonteCristo);
+        chey.lendBook(chey, DJ, countOfMonteCristo);
         System.out.print("Chey's score is: ");
         chey.getScore();
 
@@ -108,13 +107,13 @@ public class LendBooks {
         System.out.println();
         System.out.println("GOOD CONDITION TEST");
         list.getAllBooks();
-        chey.addBook(list.rentBook(tomSawyer,chey));
+        chey.addBook(list.rentBook(tomSawyer, chey));
         System.out.println();
         list.getAllBooks();
         // score should be 7
         System.out.print("Chey's score is: ");
         chey.getScore();
-        chey.returnBook("Tom Sawyer",list); //PROBLEM IS HERE
+        chey.returnBook("Tom Sawyer", list); //PROBLEM IS HERE
         System.out.println();
         //score should be 9
         System.out.print("Chey's score is: ");
@@ -125,7 +124,7 @@ public class LendBooks {
         // score should be 10
         System.out.println();
         System.out.println();
-        chey.addBook( list.rentBook(tomSawyer, chey));
+        chey.addBook(list.rentBook(tomSawyer, chey));
         System.out.println();
         System.out.print("Chey's score is: ");
         chey.getScore();
@@ -134,7 +133,7 @@ public class LendBooks {
         System.out.println();
         System.out.println("BAD CONDITION TEST");
         tomSawyer.changeCondition();
-        chey.returnBook(tomSawyer.getBookName(),list);
+        chey.returnBook(tomSawyer.getBookName(), list);
         //score should be 0
         System.out.print("Chey's score is: ");
         chey.getScore();
@@ -144,11 +143,11 @@ public class LendBooks {
         //test late book
         System.out.println();
         System.out.println("LATE TEST");
-        chey.addBook(list.rentBook(tomSawyer,chey));
+        chey.addBook(list.rentBook(tomSawyer, chey));
         tomSawyer.changeCondition();
         tomSawyer.getCondition();
         tomSawyer.setDeadline(-10);
-        chey.returnBook(tomSawyer.getBookName(),list);
+        chey.returnBook(tomSawyer.getBookName(), list);
         chey.getScore();
 
         //test search by name function
@@ -159,19 +158,15 @@ public class LendBooks {
         //test book ranking function by returning all books and checking scores
         System.out.println();
         System.out.println("TEST BOOK RANKING FUNCTION");
-        DJ.returnBook(countOfMonteCristo.getBookName(),list);
-        list.topBooks();
-
-
-
-
-
-
-
-
-
+        DJ.returnBook(countOfMonteCristo.getBookName(), list);
+        System.out.println("TOP 3 BOOKS TEST");
+        list.topBooks(3);
+        System.out.println();
+        System.out.println("TOP 6 BOOKS TEST");
+        list.topBooks(6);
+        System.out.println();
+        System.out.println("OUT OF BOUNDS TEST");
+        list.topBooks(-1);
+        list.topBooks(7);
     }
-
-
-
 }
